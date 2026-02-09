@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+}
+
+group = 'dev.knockbacktrainer'
+version = '1.0.0'
+sourceCompatibility = '21'
+targetCompatibility = '21'
+
+repositories {
+    maven { url = 'https://maven.fabricmc.net/' }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'com.mojang:minecraft:1.21.1'
+    mappings 'net.fabricmc:yarn:1.21.1+build.7:v2'
+    modImplementation 'net.fabricmc:fabric-loader:0.16.8'
+    modImplementation 'net.fabricmc.fabric-api:fabric-api:0.86.0+1.21.1'
+}
+
+tasks.register('buildJar', Jar) {
+    archiveBaseName.set('KnockbackTrainer')
+    archiveVersion.set('1.0.0')
+    from sourceSets.main.output
+}
